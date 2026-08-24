@@ -3,821 +3,615 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TRI FORM | Equipo de Fútbol — San Pedro</title>
-<meta name="description" content="Comunidad de fútbol en San Pedro Garza García. Fútbol 11, Fútbol 7, Femenil y Formativo. Entrena con nosotros." />
+<title>TRI FORM | Equipo de Fútbol en San Pedro</title>
+<meta name="description" content="Comunidad de fútbol en San Pedro Garza García. Juega de acuerdo con tus objetivos, entrena en equipo y forma parte de TRI FORM." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ===== VARIABLES ===== */
 :root{
-  --bg:#0C0E0A; --bg-2:#11140D; --paper:#F3F2EC; --paper-2:#E9E8DF;
+  --bg:#0C0E0A; --bg2:#11140D; --paper:#F3F2EC; --paper2:#E9E8DF;
   --ink:#10130C; --cream:#F3F2EC;
-  --muted-d:#9BA28E; --muted-l:#5C6151;
-  --volt:#C6F542; --volt-2:#A9E000; --volt-ink:#4E6B00;
-  --line-d:rgba(243,242,236,.14); --line-l:rgba(16,19,12,.16);
-  --shadow:0 34px 70px -34px rgba(0,0,0,.7);
+  --muted:#9BA28E; --muted2:#5C6151;
+  --volt:#C6F542; --volt2:#A9E000; --voltink:#4E6B00;
+  --line:rgba(243,242,236,.14); --line2:rgba(16,19,12,.16);
   --disp:"Anton","Impact",system-ui,sans-serif;
   --body:"Manrope",system-ui,sans-serif;
-  --ease:cubic-bezier(.16,1,.3,1);
-  --wrap:1320px;
-  --pad:clamp(1.25rem,5vw,4rem);
-  --sec:clamp(4.5rem,10vw,8.5rem);
+  --wrap:1280px; --pad:clamp(1.2rem,5vw,4rem);
 }
-
-/* ===== RESET ===== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:var(--body);font-weight:400;background:var(--bg);color:var(--cream);line-height:1.55;font-size:clamp(.95rem,1vw,1.05rem);overflow-x:hidden}
-img{max-width:100%;display:block;height:auto;object-fit:cover}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body); background:var(--bg); color:var(--cream);
+  line-height:1.55; font-size:1.05rem; -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--volt);color:var(--ink)}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
-/* Selection */
-::selection{background:var(--volt);color:var(--ink)}
-
-/* Noise overlay */
-body::before{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* ===== UTILITIES ===== */
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
-.skip{position:absolute;left:-9999px;top:0;background:var(--volt);color:var(--ink);padding:.8rem 1.2rem;z-index:10000;font-weight:800;font-size:.9rem}
-.skip:focus{left:0}
 
-.disp{font-family:var(--disp);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase;color:var(--cream)}
-.on-light .disp{color:var(--ink)}
+/* Typography */
+h1,h2,h3,h4{font-family:var(--disp);line-height:.95;letter-spacing:.01em;text-transform:uppercase;color:var(--cream)}
+.onlight h1,h2,h3,h4{color:var(--ink)}
 .hl{color:var(--volt)}
-.on-light .hl{color:var(--volt-ink)}
-
-.kicker{font-weight:700;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--volt);display:inline-flex;align-items:center;gap:.85rem;margin-bottom:.3rem}
-.kicker::before{content:"";width:30px;height:2px;background:var(--volt)}
-.on-light .kicker{color:var(--volt-ink)}
-.on-light .kicker::before{background:var(--volt-ink)}
-
-.lead{color:var(--muted-d);max-width:54ch;font-size:clamp(1.05rem,1.3vw,1.15rem)}
-.on-light .lead{color:var(--muted-l)}
-
-.missing{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;aspect-ratio:4/5;min-height:220px;width:100%;background:var(--bg-2);border:1.5px dashed rgba(243,242,236,.14);color:var(--muted-d);font-size:.82rem;text-align:center;padding:1rem}
-.missing b{color:var(--volt);font-weight:700}
-.on-light .missing{background:var(--paper-2);border-color:rgba(16,19,12,.16);color:var(--muted-l)}
-.on-light .missing b{color:var(--volt-ink)}
+.onlight .hl{color:var(--voltink)}
+.kicker{font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--volt);display:inline-flex;align-items:center;gap:.8rem;margin-bottom:.3rem}
+.kicker::before{content:"";width:28px;height:2px;background:var(--volt)}
+.onlight .kicker{color:var(--voltink)}
+.onlight .kicker::before{background:var(--voltink)}
+.lead{color:var(--muted);max-width:52ch;font-size:1.05rem}
+.onlight .lead{color:var(--muted2)}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;gap:.7rem;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;border-radius:2px;position:relative;overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s,background .35s,color .35s;white-space:nowrap;border:1px solid transparent}
-.btn .arw{transition:transform .4s var(--ease);font-size:1.05rem}
-.btn:hover .arw{transform:translateX(5px)}
-.btn-volt{background:var(--volt);color:var(--ink);box-shadow:0 14px 32px -14px rgba(198,245,66,.5)}
-.btn-volt::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%);transform:translateX(-130%);transition:transform .9s var(--ease)}
-.btn-volt:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(198,245,66,.8)}
-.btn-volt:hover::after{transform:translateX(130%)}
-.btn-line{background:transparent;color:var(--cream);border-color:var(--line-d)}
-.btn-line:hover{border-color:var(--volt);color:var(--volt);transform:translateY(-2px)}
-.on-light .btn-line{border-color:var(--line-l);color:var(--ink)}
-.on-light .btn-line:hover{border-color:var(--volt-ink);color:var(--volt-ink)}
-.tlink{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);position:relative;padding-bottom:4px}
-.tlink::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--volt);transform:scaleX(.35);transform-origin:left;transition:transform .5s var(--ease)}
-.tlink:hover::after{transform:scaleX(1)}
-.tlink .arw{transition:transform .4s var(--ease)}
-.tlink:hover .arw{transform:translateX(4px)}
-.on-light .tlink{color:var(--ink)}
-.on-light .tlink::after{background:var(--volt-ink)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;padding:.95rem 1.7rem;border-radius:2px;border:1px solid transparent;transition:.3s;white-space:nowrap}
+.btn-volt{background:var(--volt);color:var(--ink);box-shadow:0 12px 28px -10px rgba(198,245,66,.55)}
+.btn-volt:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(198,245,66,.7)}
+.btn-line{background:transparent;color:var(--cream);border-color:var(--line)}
+.btn-line:hover{border-color:var(--volt);color:var(--volt)}
+.onlight .btn-line{border-color:var(--line2);color:var(--ink)}
+.onlight .btn-line:hover{border-color:var(--voltink);color:var(--voltink)}
+.tlink{font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;color:var(--cream)}
+.tlink .arw{transition:transform .3s}
+.tlink:hover .arw{transform:translateX(3px)}
+.onlight .tlink{color:var(--ink)}
 
-/* Progress */
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--volt);z-index:9999;transition:width .1s linear}
-
-/* ===== TOPBAR ===== */
-.topbar{background:#080A06;color:var(--cream);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;text-align:center;padding:.65rem var(--pad);position:relative;z-index:60;font-weight:600}
-.topbar b{color:var(--volt);font-weight:800}.topbar .dot{color:var(--volt-2);margin:0 .9rem;opacity:.8}
-
-/* ===== HEADER ===== */
-.header{position:sticky;top:0;z-index:70;padding:1.1rem 0;background:rgba(12,14,10,.92);backdrop-filter:saturate(120%) blur(12px);box-shadow:0 1px 0 rgba(243,242,236,.08);transition:padding .4s}
-.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:var(--disp);font-size:1.6rem;letter-spacing:.06em;color:var(--cream);line-height:1}
+/* Header */
+header{position:sticky;top:0;z-index:60;padding:1rem 0;background:rgba(12,14,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(243,242,236,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--disp);font-size:1.6rem;color:var(--cream);line-height:1}
 .logo b{color:var(--volt);font-weight:400}
-.logo small{font-family:var(--body);font-weight:700;font-size:.55rem;letter-spacing:.3em;color:var(--muted-d);text-transform:uppercase;display:block;line-height:1.4}
+.logo small{font-family:var(--body);font-weight:700;font-size:.55rem;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;display:block;line-height:1.3}
+.nav{display:none;align-items:center;gap:2rem}
+.nav a{font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}
+.nav a:hover{color:var(--volt)}
+.header-cta{display:none}
+.burger{width:44px;height:44px;display:grid;place-items:center;background:rgba(243,242,236,.05);border:1px solid rgba(243,242,236,.12)}
+.burger span{display:block;width:22px;height:2px;background:var(--cream);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--cream)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+@media(min-width:860px){.nav{display:flex}.header-cta{display:inline-flex}.burger{display:none}}
 
-.nav{display:none;align-items:center;gap:2.2rem}
-.nav a{font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;position:relative;padding:.3rem 0;color:var(--cream)}
-.nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--volt);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
-.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:6.5rem 0 3.5rem;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65) contrast(1.05);z-index:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,14,10,.65) 0%,rgba(12,14,10,.4) 40%,rgba(12,14,10,.92) 100%);z-index:1}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,12vw,8rem);margin:1rem 0 1.2rem;max-width:13ch}
+.hero .lead{font-size:clamp(1rem,1.4vw,1.15rem);max-width:48ch}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.6rem 0 1.8rem}
+.tags span{font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(243,242,236,.2);padding:.5rem .9rem;border-radius:2px;color:var(--cream)}
+.tags span:first-child{background:var(--volt);color:var(--ink);border-color:var(--volt)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem 1.2rem;align-items:center;margin-bottom:.4rem}
+.stats{display:flex;flex-wrap:wrap;gap:2rem 2.8rem;margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid rgba(243,242,236,.14)}
+.stats .s b{font-family:var(--disp);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--volt);display:block;line-height:1}
+.stats .s span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
-.head-cta{display:none}
-
-.burger{width:44px;height:44px;display:grid;place-items:center;position:relative;z-index:80;background:rgba(243,242,236,.06);border:1px solid rgba(243,242,236,.12)}
-.burger span{display:block;width:22px;height:2px;background:var(--cream);position:relative;transition:background .3s}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--cream);transition:transform .35s,top .35s}
-.burger span::before{top:-7px}.burger span::after{top:7px}
-
-body.menu-open .burger span{background:transparent}
-body.menu-open .burger span::before{top:0;transform:rotate(45deg)}
-body.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
-
-.mmenu{position:fixed;inset:0;z-index:75;background:var(--bg);color:var(--cream);display:flex;flex-direction:column;justify-content:space-between;padding:7rem var(--pad) 2.5rem;clip-path:circle(0 at calc(100% - 2.5rem) 2.5rem);transition:clip-path .85s var(--ease);visibility:hidden}
-body.menu-open .mmenu{clip-path:circle(160% at calc(100% - 2.5rem) 2.5rem);visibility:visible}
-.mmenu .mnav{display:flex;flex-direction:column;gap:.4rem}
-.mmenu .mnav a{font-family:var(--disp);font-size:clamp(2.2rem,12vw,4.2rem);text-transform:uppercase;display:flex;align-items:baseline;gap:1.2rem;opacity:0;transform:translateY(25px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .35s}
-body.menu-open .mmenu .mnav a{opacity:1;transform:none}
-.mmenu .mnav a i{font-style:normal;font-family:var(--body);font-weight:800;font-size:.7rem;letter-spacing:.2em;color:var(--volt)}
-.mmenu .mnav a:hover{color:var(--volt)}
-.mmenu .mfoot{display:flex;flex-direction:column;gap:1.6rem;border-top:1px solid var(--line-d);padding-top:1.8rem}
-.mmenu .mfoot .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.mmenu .mfoot .socials{display:flex;gap:1.4rem;font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
-.mmenu .mfoot .socials a:hover{color:var(--volt)}
-body.no-scroll{overflow:hidden}
-
-/* Responsive */
-@media(min-width:860px){
-  .nav{display:flex}
-  .head-cta{display:inline-flex}
-  .burger{display:none}
-}
-@media(min-width:860px){.header{padding:1.2rem 0}}
-
-@media(max-width:860px){
-  .nav,.head-cta{display:none}
-}
-
-/* ===== HERO ===== */
-.hero{position:relative;min-height:105svh;display:flex;align-items:flex-end;padding:clamp(6rem,14vw,10rem) 0 clamp(3rem,6vw,5rem);overflow:hidden;}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.7) contrast(1.05)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,14,10,.7) 0%,rgba(12,14,10,.35) 45%,rgba(12,14,10,.92) 100%),linear-gradient(90deg,rgba(12,14,10,.9) 0%,rgba(12,14,10,.25) 70%)}
-
-.hero .wrap{position:relative;z-index:2;width:100%}
-.hero h1{font-size:clamp(3.2rem,13vw,9rem);margin:1.3rem 0 1.4rem;max-width:14ch;line-height:.92}
-.hero .lead{font-size:clamp(1.05rem,1.5vw,1.25rem);max-width:48ch}
-
-.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.8rem 0 2.2rem}
-.hero-tags span{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(243,242,236,.22);padding:.55rem 1rem;border-radius:2px;color:var(--cream)}
-.hero-tags span:first-child{background:var(--volt);color:var(--ink);border-color:var(--volt)}
-
-.hero-cta{display:flex;flex-wrap:wrap;gap:1rem 1.4rem;align-items:center;margin-bottom:.4rem}
-.hero-stats{display:flex;flex-wrap:wrap;gap:1.4rem 3rem;margin-top:2.8rem;padding-top:1.8rem;border-top:1px solid rgba(243,242,236,.14);}
-.hero-stats .s b{font-family:var(--disp);font-size:clamp(1.8rem,4.2vw,3rem);color:var(--volt);display:block;line-height:1;letter-spacing:.02em}
-.hero-stats .s span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d);font-weight:600}
-
-.scroll-cue{position:absolute;right:var(--pad);bottom:1.2rem;z-index:3;display:none;align-items:center;gap:.7rem;font-weight:800;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted-d)}
-.scroll-cue .line{width:1px;height:48px;background:rgba(243,242,236,.18);position:relative;overflow:hidden}
-.scroll-cue .line i{position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--volt);animation:cue 2.2s var(--ease) infinite}
-@keyframes cue{0%{top:-50%}100%{top:110%}}
-@media(min-width:900px){.scroll-cue{display:flex}}
-
-/* ===== MARQUEE ===== */
-.marquee{background:var(--volt);color:var(--ink);overflow:hidden;padding:1rem 0;border-top:1px solid #000;border-bottom:1px solid #000}
-.marquee .track{display:flex;white-space:nowrap;width:max-content;animation:mar 35s linear infinite}
-.marquee span{font-family:var(--disp);font-size:clamp(1.3rem,3.2vw,2.2rem);letter-spacing:.06em;padding:0 1.6rem;display:inline-flex;align-items:center;gap:1.6rem}
-.marquee span::after{content:"●";font-size:.6em}
-@keyframes mar{to{transform:translateX(-50%)}}
-
-/* ===== SECTIONS ===== */
-.section{padding:var(--sec) 0;position:relative}
-.on-light{background:var(--paper);color:var(--ink)}
+/* Sections */
+section{padding:5rem 0}
+.onlight{background:var(--paper);color:var(--ink)}
 .dark{background:var(--bg);color:var(--cream)}
 
-.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.6rem 2.5rem;margin-bottom:clamp(2.2rem,4.5vw,3.6rem)}
-.sec-head h2{font-size:clamp(2.4rem,6.5vw,4.8rem);margin-top:.8rem;line-height:.92}
-.sec-head .note{max-width:36ch;font-size:1rem;color:var(--muted-l)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(2.2rem,6vw,4.5rem);line-height:.92;margin-top:.6rem}
+.sec-head p{max-width:34ch;color:var(--muted2);font-size:1rem}
 
-.frame-deco{position:absolute;inset:-14px;border:1px solid var(--line-l);z-index:-1}
-.on-light .frame-deco{border-color:rgba(16,19,12,.2)}
+.frame{position:relative}
+.frame::before{content:"";position:absolute;inset:-12px;border:1px solid rgba(243,242,236,.15);z-index:-1}
+.onlight .frame::before{border-color:rgba(16,19,12,.15)}
 
 /* Statement */
-.statement{padding:var(--sec) 0;background:var(--paper)}
-.statement .grid{display:grid;gap:clamp(2.4rem,5vw,4rem);align-items:center}
-.statement h2{font-size:clamp(2.4rem,6.5vw,5rem);margin:1rem 0 1.2rem;line-height:.92}
-.statement p{color:var(--muted-l);margin-bottom:1.1rem;max-width:54ch;font-size:1.02rem}
-.statement .big-line{font-family:var(--disp);font-size:clamp(1.4rem,3vw,2rem);text-transform:uppercase;line-height:1.08;color:var(--ink);margin-top:1.2rem}
-.statement .big-line .hl{color:var(--volt-ink)}
-.statement .shot{position:relative}
+.statement .grid{display:grid;gap:3rem;align-items:center}
+.statement h2{font-size:clamp(2.2rem,6vw,4.5rem);line-height:.92;margin:1rem 0 1rem}
+.statement p{color:var(--muted2);margin-bottom:1rem;max-width:52ch;font-size:1.05rem}
+.bigline{font-family:var(--disp);font-size:clamp(1.4rem,3vw,2rem);text-transform:uppercase;line-height:1.05;color:var(--ink);margin-top:1.2rem}
+.bigline .hl{color:var(--voltink)}
 @media(min-width:900px){.statement .grid{grid-template-columns:1fr 1fr}}
 
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease),transform .85s var(--ease);transition-delay:var(--d,0s)}
-.reveal.in{opacity:1;transform:none}
-.reveal-l{transform:translateX(-30px)}.reveal-r{transform:translateX(30px)}
-.reveal-l.in,.reveal-r.in{transform:none}
-
-/* ===== CATEGORIES ===== */
-.cats{background:var(--bg)}
-.cat{display:grid;gap:clamp(2rem,4vw,3.4rem);align-items:center;padding:clamp(2.5rem,4vw,3.5rem) 0;border-top:1px solid rgba(243,242,236,.12)}
+/* Categories */
+.cat{display:grid;gap:2.5rem;align-items:center;padding:4rem 0;border-top:1px solid rgba(243,242,236,.1)}
 .cat:first-of-type{border-top:none}
 .cat .media{position:relative;overflow:hidden}
-.cat .media img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1s var(--ease)}
-.cat:hover .media img{transform:scale(1.04)}
-.cat .media .num{position:absolute;top:1rem;left:1rem;font-family:var(--disp);font-size:1.2rem;color:var(--volt);text-shadow:0 2px 8px rgba(0,0,0,.4)}
-.cat .tag{font-weight:800;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--volt);display:block;margin-bottom:.4rem}
-.cat h3{font-size:clamp(2rem,5vw,3.4rem);margin:.6rem 0 .9rem;line-height:.95}
-.cat p{color:var(--muted-d);max-width:46ch;margin-bottom:1rem;font-size:.98rem}
-.cat .fit{margin:1rem 0 1.5rem;display:grid;gap:.55rem}
-.cat .fit li{position:relative;padding-left:1.4rem;font-size:.95rem;color:var(--cream)}
-.cat .fit li::before{content:"→";position:absolute;left:0;color:var(--volt);font-weight:700;font-size:.9rem}
+.cat .media img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1s ease}
+.cat:hover .media img{transform:scale(1.03)}
+.cat .media .num{position:absolute;top:.8rem;left:.8rem;font-family:var(--disp);font-size:1.3rem;color:var(--volt)}
+.cat .tag{font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);display:block;margin-bottom:.3rem}
+.cat h3{font-size:clamp(2rem,5vw,3.2rem);margin:.6rem 0 .8rem;line-height:.95}
+.cat p{color:var(--muted);max-width:44ch;margin-bottom:.8rem;font-size:.98rem}
+.fit{display:grid;gap:.5rem;margin:1rem 0 1.4rem}
+.fit li{position:relative;padding-left:1.3rem;font-size:.94rem;color:var(--cream)}
+.fit li::before{content:"→";position:absolute;left:0;color:var(--volt);font-weight:700}
 @media(min-width:860px){.cat{grid-template-columns:1fr 1fr}.cat.flip .media{order:2}}
+.index{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.5rem}
+.index a{font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(243,242,236,.12);padding:.6rem 1.1rem;border-radius:2px;color:var(--cream);transition:.35s}
+.index a:hover{background:var(--volt);color:var(--ink);border-color:var(--volt)}
 
-.cat-index{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.5rem}
-.cat-index a{font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(243,242,236,.14);padding:.65rem 1.2rem;border-radius:2px;color:var(--cream);transition:.4s}
-.cat-index a:hover{background:var(--volt);color:var(--ink);border-color:var(--volt)}
-
-/* ===== PILLARS ===== */
-.pillars{background:var(--bg-2)}
-.pillars .intro{max-width:46ch;color:var(--muted-d);margin-bottom:2.8rem;font-size:1.02rem}
-.pillars .intro b{color:var(--cream);font-weight:700}
-
-.pgrid{display:grid;gap:1px;background:rgba(243,242,236,.12);border:1px solid rgba(243,242,236,.12)}
-.pgrid .p{background:var(--bg-2);padding:clamp(1.8rem,3vw,2.6rem);transition:background .4s}
-.pgrid .p:hover{background:#15190f}
-.pgrid .p .n{font-family:var(--disp);font-size:1.2rem;color:var(--volt)}
-.pgrid .p h4{font-family:var(--disp);font-size:clamp(1.3rem,3vw,2rem);text-transform:uppercase;margin:.6rem 0 .5rem;line-height:1}
-.pgrid .p p{font-size:.94rem;color:var(--muted-d)}
+/* Pillars */
+.pillars{background:var(--bg2)}
+.pillars .intro{max-width:46ch;color:var(--muted);margin-bottom:2.5rem;font-size:1.02rem}
+.pgrid{display:grid;gap:1px;background:rgba(243,242,236,.1);border:1px solid rgba(243,242,236,.1)}
+.p{background:var(--bg2);padding:2rem}
+.p .n{font-family:var(--disp);font-size:1.2rem;color:var(--volt)}
+.p h4{font-family:var(--disp);font-size:clamp(1.3rem,3vw,2rem);text-transform:uppercase;margin:.5rem 0 .4rem;line-height:1}
+.p p{font-size:.93rem;color:var(--muted)}
 @media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.pgrid{grid-template-columns:repeat(4,1fr)}}
 
-/* ===== CTA BAND ===== */
-.band{position:relative;padding:clamp(5rem,9vw,7rem) 0;overflow:hidden}
-.band .bg{position:absolute;inset:0;z-index:0}
-.band .bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
-.band .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,14,10,.95) 0%,rgba(12,14,10,.7) 100%)}
+/* Band */
+.band{position:relative;padding:6rem 0;overflow:hidden}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.4);z-index:0}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,14,10,.95) 0%,rgba(12,14,10,.65) 100%);z-index:1}
 .band .wrap{position:relative;z-index:2}
-.band h2{font-size:clamp(2.6rem,7vw,5rem);max-width:14ch;line-height:.92}
-.band p{color:var(--muted-d);max-width:46ch;margin:1.4rem 0 2.2rem;font-size:1.05rem}
+.band h2{font-size:clamp(2.4rem,7vw,5rem);max-width:12ch;line-height:.92}
+.band p{color:var(--muted);max-width:46ch;margin:1.2rem 0 2rem;font-size:1.05rem}
 
-/* ===== EQUIPO ===== */
-.equipo{background:var(--paper);color:var(--ink)}
-.equipo .grid{display:grid;gap:3rem;align-items:center}
-.equipo h2{font-size:clamp(2.4rem,6.5vw,5rem);margin:1rem 0 1.2rem;line-height:.92}
-.equipo p{color:var(--muted-l);margin-bottom:1.1rem;max-width:54ch;font-size:1.02rem}
-@media(min-width:900px){.equipo .grid{grid-template-columns:1fr 1fr}}
-
-.philo{margin-top:clamp(3.5rem,7vw,6rem);padding-top:clamp(2.5rem,5vw,4rem);border-top:1px solid rgba(16,19,12,.15)}
-.philo .k{font-family:var(--disp);font-size:clamp(2rem,5.5vw,3.4rem);text-transform:uppercase;line-height:.95;margin-bottom:1rem}
-.philo .k .hl{color:var(--volt-ink)}
-.philo p{color:var(--muted-l);max-width:62ch;font-size:1.02rem}
+/* Equipo */
+.equipo h2{font-size:clamp(2.4rem,6vw,5rem);line-height:.92;margin:1rem 0 1rem}
+.equipo p{color:var(--muted2);margin-bottom:1rem;max-width:52ch;font-size:1.02rem}
+.philo{margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(16,19,12,.15)}
+.philo .k{font-family:var(--disp);font-size:clamp(2rem,5vw,3.4rem);text-transform:uppercase;line-height:.95}
+.philo .k .hl{color:var(--voltink)}
+.philo p{color:var(--muted2);max-width:60ch;margin-top:1rem;font-size:1.02rem}
 .values{display:grid;gap:1px;background:rgba(16,19,12,.12);border:1px solid rgba(16,19,12,.12);margin-top:2.5rem}
-.values .v{background:var(--paper);padding:clamp(1.4rem,3vw,2rem);transition:background .4s}
-.values .v:hover{background:var(--paper-2)}
-.values .v .n{font-weight:800;font-size:.72rem;letter-spacing:.2em;color:var(--volt-ink)}
-.values .v h4{font-family:var(--disp);font-size:clamp(1.2rem,3vw,1.8rem);text-transform:uppercase;margin:.5rem 0 .4rem;line-height:1}
-.values .v p{font-size:.9rem;color:var(--muted-l)}
+.values .v{background:var(--paper);padding:1.6rem;transition:.3s}
+.values .v:hover{background:var(--paper2)}
+.values .v .n{font-weight:800;font-size:.7rem;letter-spacing:.2em;color:var(--voltink)}
+.values .v h4{font-family:var(--disp);font-size:clamp(1.2rem,3vw,1.8rem);text-transform:uppercase;margin:.4rem 0 .3rem;line-height:1}
+.values .v p{font-size:.9rem;color:var(--muted2)}
 @media(min-width:640px){.values{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.values{grid-template-columns:repeat(5,1fr)}}
 
-/* ===== HOW ===== */
-.how{background:var(--bg)}
-.how .grid{display:grid;gap:clamp(2.5rem,5vw,4rem);align-items:center}
-.how .intro{color:var(--muted-d);max-width:46ch;margin-top:1rem;font-size:1.02rem}
-.how .shot{position:relative;overflow:hidden}
-.how .shot img{width:100%;aspect-ratio:4/5;object-fit:cover}
+/* How */
+.how .intro{color:var(--muted);max-width:46ch;margin-top:1rem;font-size:1.02rem}
 .steps{display:grid;gap:1px;background:rgba(243,242,236,.08);border:1px solid rgba(243,242,236,.1);margin-top:2.5rem}
-.steps .st{background:var(--bg);padding:clamp(1.5rem,3vw,2rem);display:grid;grid-template-columns:auto 1fr;gap:1.1rem;transition:background .4s;align-items:start}
-.steps .st:hover{background:var(--bg-2)}
-.steps .st .n{font-family:var(--disp);font-size:1.6rem;color:var(--volt);line-height:1}
-.steps .st h4{font-family:var(--disp);font-size:clamp(1.2rem,2.6vw,1.6rem);text-transform:uppercase;margin-bottom:.3rem;line-height:1}
-.steps .st p{font-size:.92rem;color:var(--muted-d)}
+.st{background:var(--bg);padding:1.6rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.st .n{font-family:var(--disp);font-size:1.5rem;color:var(--volt);line-height:1}
+.st h4{font-family:var(--disp);font-size:clamp(1.1rem,2.5vw,1.5rem);text-transform:uppercase;margin-bottom:.3rem}
+.st p{font-size:.92rem;color:var(--muted)}
 @media(min-width:900px){.how .grid{grid-template-columns:1fr 1fr}}
 
-/* ===== PLANES ===== */
-.planes{background:var(--paper);color:var(--ink)}
-.planes .sub{color:var(--muted-l);max-width:48ch;margin-top:.8rem;font-size:1rem}
-.pcards{display:grid;gap:1.4rem;margin-top:clamp(2.5rem,5vw,3.5rem)}
-.plan{border:1px solid rgba(16,19,12,.12);background:var(--paper);padding:clamp(1.8rem,3vw,2.6rem);display:flex;flex-direction:column;position:relative;transition:transform .45s var(--ease),box-shadow .45s,border-color .45s}
-.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--volt-ink)}
-.plan .pop{position:absolute;top:-11px;right:1.4rem;background:var(--volt);color:var(--ink);font-weight:800;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;padding:.35rem .7rem;border-radius:2px}
-.plan .name{font-family:var(--disp);font-size:clamp(1.6rem,4vw,2.4rem);text-transform:uppercase;line-height:1}
-.plan .price{font-family:var(--disp);font-size:clamp(1.8rem,4vw,3rem);margin:.7rem 0 .2rem;line-height:1}
-.plan .price small{font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.1em;color:var(--muted-l);display:block;margin-top:.2rem}
-.plan .desc{font-size:.93rem;color:var(--muted-l);margin:.7rem 0 1.2rem;min-height:3em;line-height:1.5}
+/* Planes */
+.planes .sub{color:var(--muted2);max-width:48ch;margin-top:.8rem;font-size:1rem}
+.pcards{display:grid;gap:1.4rem;margin-top:2.5rem}
+.plan{border:1px solid rgba(16,19,12,.12);background:var(--paper);padding:2rem;display:flex;flex-direction:column;transition:.4s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 28px 60px -20px rgba(0,0,0,.18);border-color:var(--voltink)}
+.plan.featured{border-color:var(--voltink);box-shadow:0 20px 50px -15px rgba(0,0,0,.12)}
+.pop{position:absolute;top:-11px;right:1.5rem;background:var(--volt);color:var(--ink);font-weight:800;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .7rem;border-radius:2px}
+.plan .name{font-family:var(--disp);font-size:clamp(1.5rem,3.5vw,2.2rem);text-transform:uppercase;line-height:.95}
+.plan .price{font-family:var(--disp);font-size:clamp(1.8rem,4vw,2.8rem);margin:.7rem 0 .2rem;line-height:1}
+.plan .price small{font-family:var(--body);font-weight:700;font-size:.8rem;color:var(--muted2);display:block;margin-top:.2rem}
+.plan .desc{font-size:.92rem;color:var(--muted2);margin:.6rem 0 1rem;min-height:2.8em}
 .plan .inc{list-style:none;display:grid;gap:.5rem;margin-bottom:1.6rem;flex:1}
 .plan .inc li{position:relative;padding-left:1.3rem;font-size:.9rem;color:var(--ink)}
-.plan .inc li::before{content:"✓";position:absolute;left:0;color:var(--volt-ink);font-weight:800;font-size:.9rem}
-@media(min-width:860px){.pcards{grid-template-columns:repeat(3,1fr);align-items:stretch}.plan.featured{border-color:var(--volt-ink);box-shadow:0 20px 60px -20px rgba(0,0,0,.15)}}
+.plan .inc li::before{content:"✓";position:absolute;left:0;color:var(--voltink);font-weight:800;font-size:.9rem}
+@media(min-width:860px){.pcards{grid-template-columns:repeat(3,1fr);align-items:stretch}}
 
-.planes .ask{margin-top:2.5rem;border:1px dashed rgba(16,19,12,.2);padding:clamp(1.4rem,3vw,2rem);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.2rem}
-.planes .ask p{color:var(--muted-l);max-width:46ch;font-size:.97rem}
-.planes .note-pay{font-size:.78rem;letter-spacing:.04em;color:var(--muted-l);margin-top:1.6rem}
-.planes .note-pay b{color:var(--volt-ink)}
+.ask{margin-top:2.5rem;border:1px dashed rgba(16,19,12,.18);padding:1.6rem 2rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.ask p{color:var(--muted2);max-width:46ch;font-size:.97rem}
+.note-pay{font-size:.78rem;color:var(--muted2);margin-top:1.4rem}
 
-/* ===== UNETE / FORM ===== */
-.unete{background:var(--bg)}
-.unete .grid{display:grid;gap:clamp(2.5rem,5vw,4rem);align-items:start}
-.unete .left{position:sticky;top:110px;align-self:start}
-.unete h2{font-size:clamp(2.4rem,7vw,5rem);margin:1rem 0 1.2rem;line-height:.92}
-.unete .left p{color:var(--muted-d);max-width:46ch;margin-bottom:1.8rem;font-size:1.02rem}
-.unete .shot{position:relative;overflow:hidden;margin-top:2rem}
-.unete .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-
-.form{background:var(--bg-2);border:1px solid rgba(243,242,236,.1);padding:clamp(1.8rem,4vw,3rem)}
-.form h3{font-family:var(--disp);font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase;margin-bottom:1.6rem;line-height:1.1}
-.fgrid{display:grid;gap:1.1rem}
-.field{display:flex;flex-direction:column;gap:.4rem}
-.field label{font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d)}
-.field input,.field select,.field textarea{font:inherit;color:var(--cream);background:var(--bg);border:1px solid rgba(243,242,236,.14);border-radius:3px;padding:.9rem 1.1rem;transition:border-color .35s,background .35s;width:100%;font-size:.95rem}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--volt);background:#0a0c07}
-.field textarea{resize:vertical;min-height:110px}
+/* Unete */
+.unete .grid{display:grid;gap:3rem;align-items:start}
+.unete h2{font-size:clamp(2.2rem,6vw,4.5rem);line-height:.92;margin:1rem 0 1rem}
+.unete .left p{color:var(--muted);max-width:44ch;margin-bottom:1.6rem;font-size:1.02rem}
+.form{background:var(--bg2);border:1px solid rgba(243,242,236,.1);padding:2rem}
+.form h3{font-family:var(--disp);font-size:clamp(1.3rem,3vw,1.8rem);text-transform:uppercase;margin-bottom:1.4rem;line-height:1.1}
+.fgrid{display:grid;gap:1rem}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;color:var(--cream);background:var(--bg);border:1px solid rgba(243,242,236,.12);border-radius:3px;padding:.85rem 1rem;width:100%;font-size:.95rem;transition:.3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--volt);background:#0b0d08}
+.field textarea{resize:vertical;min-height:100px}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23C6F542' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;cursor:pointer}
 .field .req{color:var(--volt)}
 @media(min-width:640px){.fgrid{grid-template-columns:1fr 1fr}.field.full{grid-column:1/-1}}
-.form .btn{width:100%;justify-content:center;margin-top:1.6rem}
-
-.form-ok{display:none;text-align:center;padding:3rem 1rem}
-.form-ok .ic{width:68px;height:68px;border-radius:50%;background:var(--volt);color:var(--ink);display:grid;place-items:center;font-size:2.2rem;margin:0 auto 1.4rem;font-weight:800}
-.form-ok h3{font-family:var(--disp);font-size:2rem;text-transform:uppercase;margin-bottom:.8rem;line-height:1.05}
-.form-ok p{color:var(--muted-d);max-width:36ch;margin:0 auto 1.6rem;font-size:1rem}
+.form-ok{display:none;text-align:center;padding:2rem 1rem}
+.form-ok .ic{width:60px;height:60px;border-radius:50%;background:var(--volt);color:var(--ink);display:grid;place-items:center;font-size:1.8rem;margin:0 auto 1rem;font-weight:800}
+.form-ok h3{font-family:var(--disp);font-size:1.6rem;text-transform:uppercase;margin-bottom:.6rem}
 .form.sent .form-body{display:none}
 .form.sent .form-ok{display:block}
+@media(min-width:900px){.unete .grid{grid-template-columns:.95fr 1.05fr}}
 
-@media(min-width:900px){.unete .grid{grid-template-columns:.9fr 1.1fr}}
-
-/* ===== CONTACTO ===== */
-.contacto{background:var(--bg-2);border-top:1px solid rgba(243,242,236,.1)}
-.contacto .grid{display:grid;gap:1.5rem}
-.contacto .c{border:1px solid rgba(243,242,236,.12);padding:clamp(1.4rem,3vw,2rem);transition:border-color .35s}
-.contacto .c:hover{border-color:rgba(198,245,66,.4)}
-.contacto .c .k{font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);margin-bottom:.5rem}
-.contacto .c .v{font-family:var(--disp);font-size:clamp(1.2rem,3vw,1.7rem);text-transform:uppercase;line-height:1.1;letter-spacing:.02em}
-.contacto .c .v a:hover{color:var(--volt)}
+/* Contacto */
+.contacto{background:var(--bg2);border-top:1px solid rgba(243,242,236,.08)}
+.contacto .grid{display:grid;gap:1.2rem}
+.c{border:1px solid rgba(243,242,236,.1);padding:1.5rem}
+.c .k{font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);margin-bottom:.4rem}
+.c .v{font-family:var(--disp);font-size:clamp(1.1rem,2.8vw,1.6rem);text-transform:uppercase;line-height:1.1;letter-spacing:.02em}
 @media(min-width:860px){.contacto .grid{grid-template-columns:repeat(3,1fr)}}
 
-/* ===== BLOG ===== */
+/* Blog */
 .blog{background:var(--paper);color:var(--ink)}
-.bgrid{display:grid;gap:1px;background:rgba(16,19,12,.1);border:1px solid rgba(16,19,12,.1);margin-top:clamp(2.5rem,5vw,3.5rem)}
-.post{background:var(--paper);padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;gap:.8rem;transition:background .35s}
-.post:hover{background:var(--paper-2)}
-.post .cat-tag{font-weight:800;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--volt-ink)}
-.post h4{font-family:var(--disp);font-size:clamp(1.2rem,2.6vw,1.6rem);text-transform:uppercase;line-height:1.05;letter-spacing:.01em}
-.post p{font-size:.93rem;color:var(--muted-l);flex:1;line-height:1.5}
-.post .more{font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:.5rem;align-items:center;margin-top:.4rem;color:var(--ink)}
-.post .more .arw{transition:transform .4s var(--ease)}
-.post:hover .more .arw{transform:translateX(4px)}
+.bgrid{display:grid;gap:1px;background:rgba(16,19,12,.1);border:1px solid rgba(16,19,12,.1);margin-top:2.5rem}
+.post{background:var(--paper);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;transition:.3s}
+.post:hover{background:var(--paper2)}
+.post .tag{font-weight:800;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--voltink)}
+.post h4{font-family:var(--disp);font-size:clamp(1.1rem,2.4vw,1.5rem);text-transform:uppercase;line-height:1.05}
+.post p{font-size:.92rem;color:var(--muted2);flex:1;line-height:1.45}
+.post .more{font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;gap:.4rem;align-items:center;margin-top:.2rem;color:var(--ink)}
 @media(min-width:640px){.bgrid{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.bgrid{grid-template-columns:repeat(3,1fr)}}
 
-/* ===== FOOTER ===== */
-.footer{background:#080a06;color:var(--cream);padding:clamp(3.5rem,7vw,5rem) 0 2rem;border-top:1px solid rgba(243,242,236,.1)}
-.f-top{display:grid;gap:2.5rem;padding-bottom:2.6rem;border-bottom:1px solid rgba(243,242,236,.1)}
-.f-brand .l1{font-family:var(--disp);font-size:2.6rem;letter-spacing:.06em;line-height:1;color:var(--cream)}
+/* Footer */
+footer{background:#080a06;color:var(--cream);padding:4rem 0 2rem;border-top:1px solid rgba(243,242,236,.1)}
+.f-top{display:grid;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(243,242,236,.1)}
+.f-brand .l1{font-family:var(--disp);font-size:2.4rem;letter-spacing:.05em;color:var(--cream)}
 .f-brand .l1 b{color:var(--volt);font-weight:400}
-.f-brand .tag{font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);margin:.7rem 0 .8rem}
-.f-brand p{color:var(--muted-d);max-width:34ch;font-size:.92rem;line-height:1.5}
-.f-col h5{font-weight:800;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--volt);margin-bottom:1.2rem}
-.f-col a,.f-col li{display:block;color:var(--muted-d);font-size:.9rem;padding:.35rem 0;transition:color .25s,padding-left .25s}
-.f-col a:hover{color:var(--cream);padding-left:.4rem}
-.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:1.8rem;font-size:.7rem;letter-spacing:.08em;color:var(--muted-d);text-transform:uppercase;font-weight:600}
-.f-bottom .toTop{cursor:pointer;color:var(--cream);border:none;background:none;font:inherit}
-.f-bottom .toTop:hover{color:var(--volt)}
+.f-brand .tag{font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);margin:.6rem 0 .8rem}
+.f-brand p{color:var(--muted);max-width:32ch;font-size:.92rem;line-height:1.5}
+.f-col h5{font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);margin-bottom:1rem}
+.f-col a{display:block;color:var(--muted);font-size:.9rem;padding:.3rem 0;transition:.2s}
+.f-col a:hover{color:var(--cream)}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:1.6rem;font-size:.7rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:600}
 @media(min-width:760px){.f-top{grid-template-columns:1.4fr 1fr 1fr 1fr}}
-
-/* Float button mobile */
-.float-join{position:fixed;left:50%;bottom:1rem;transform:translate(-50%,140%);z-index:65;display:none;align-items:center;gap:.6rem;background:var(--volt);color:var(--ink);border-radius:3px;padding:.9rem 1.6rem;font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:var(--shadow);transition:transform .6s var(--ease)}
-.float-join.show{transform:translate(-50%,0)}
-.float-join .dot{width:8px;height:8px;border-radius:50%;background:var(--ink);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,19,12,.5)}70%{box-shadow:0 0 0 10px rgba(16,19,12,0)}100%{box-shadow:0 0 0 0 rgba(16,19,12,0)}}
-@media(max-width:850px){.float-join{display:inline-flex}}
-
-/* Cursor (desktop) */
-.cursor{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--volt);border-radius:50%;pointer-events:none;z-index:10002;transform:translate(-50%,-50%);transition:transform .1s}
-.cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid var(--volt);border-radius:50%;pointer-events:none;z-index:10001;transform:translate(-50%,-50%);transition:width .3s,height .3s}
-@media(hover:none),(pointer:coarse){.cursor,.cursor-ring{display:none}}
 </style>
 </head>
+<body>
 
-<body class="no-js">
-
-<a href="#main" class="skip">Saltar al contenido</a>
-<div class="progress" id="progress"></div>
-
-<div class="topbar">Inscripciones abiertas <span class="dot">●</span> San Pedro Garza García <span class="dot">●</span> <b>TRI FORM</b></div>
-
-<header class="header" id="header">
+<header>
   <div class="wrap">
-    <a href="#inicio" class="logo">TRI<b>FORM</b><small>Endurance</small></a>
+    <a href="#" class="logo">TRI<b>FORM</b><small>Endurance</small></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#equipo">El equipo</a>
-      <a href="#disciplinas">Disciplinas</a>
-      <a href="#planes">Planes</a>
-      <a href="#blog">Blog</a>
+      <a href="#inicio">Inicio</a><a href="#equipo">El equipo</a><a href="#disciplinas">Disciplinas</a><a href="#planes">Planes</a><a href="#blog">Blog</a>
     </nav>
-    <a href="#unete" class="btn btn-volt head-cta">Únete <span class="arw">→</span></a>
-    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+    <a href="#unete" class="btn btn-volt header-cta">Únete <span style="font-size:1.1rem">→</span></a>
+    <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('openmenu')"><span></span></button>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<div class="mmenu" id="mmenu" aria-hidden="true">
-  <nav class="mnav" aria-label="Móvil">
-    <a href="#inicio" style="transition-delay:.08s"><i>01</i>Inicio</a>
-    <a href="#equipo" style="transition-delay:.15s"><i>02</i>El equipo</a>
-    <a href="#disciplinas" style="transition-delay:.22s"><i>03</i>Disciplinas</a>
-    <a href="#planes" style="transition-delay:.29s"><i>04</i>Planes</a>
-    <a href="#blog" style="transition-delay:.36s"><i>05</i>Blog</a>
-    <a href="#unete" style="transition-delay:.43s"><i>06</i>Únete</a>
-  </nav>
-  <div class="mfoot">
-    <a href="#unete" class="btn btn-volt" style="justify-content:center">Únete a TRI FORM <span class="arw">→</span></a>
-    <div class="row">
-      <div class="socials"><a href="#contacto">Instagram</a><a href="#contacto">Contacto</a></div>
-      <span style="font-size:.72rem;letter-spacing:.16em;color:var(--muted-d);font-weight:600">San Pedro · NL</span>
-    </div>
-  </div>
-</div>
+<main id="inicio">
 
-<main id="main">
-
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1600&auto=format&fit=crop" alt="Equipo de fútbol entrenando" fetchpriority="high"
-      onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>hero.jpg</b></div>'">
-  </div>
+<section class="hero" aria-label="Portada">
+  <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1600&auto=format&fit=crop" alt="Fútbol entrenamiento">
   <div class="wrap">
-    <span class="kicker reveal">Equipo de Fútbol · San Pedro</span>
-    <h1 class="disp reveal" style="--d:.08s">Juega por tus objetivos. <br><span class="hl">Hazlo en equipo.</span></h1>
-    <p class="lead reveal" style="--d:.14s">Somos una comunidad de atletas en San Pedro que entrena, comparte el proceso y trabaja todos los días por un objetivo diferente.</p>
-    <div class="hero-tags reveal" style="--d:.20s">
+    <span class="kicker">Equipo de Fútbol · San Pedro</span>
+    <h1>Juega por tus objetivos. <span class="hl">Hazlo en equipo.</span></h1>
+    <p class="lead">Somos una comunidad de atletas en San Pedro que entrena, comparte el proceso y trabaja todos los días por un objetivo diferente.</p>
+    <div class="tags">
       <span>Fútbol 11</span><span>Fútbol 7</span><span>Femenil</span><span>Formativo</span>
     </div>
-    <div class="hero-cta reveal" style="--d:.26s">
-      <a href="#unete" class="btn btn-volt">Únete a TRI FORM <span class="arw">→</span></a>
-      <a href="#disciplinas" class="tlink">Conoce los entrenamientos <span class="arw">→</span></a>
+    <div class="hero-cta">
+      <a href="#unete" class="btn btn-volt">Únete a TRI FORM <span>→</span></a>
+      <a href="#disciplinas" class="tlink">Conoce los entrenamientos <span>→</span></a>
     </div>
-    <div class="hero-stats reveal" style="--d:.32s">
-      <div class="s">
-        <b data-count="120" data-suffix="+">0</b>
-        <span>Atletas</span>
-      </div>
-      <div class="s">
-        <b data-count="4">0</b>
-        <span>Categorías</span>
-      </div>
-      <div class="s">
-        <b data-count="30" data-suffix="+">0</b>
-        <span>Partidos al año</span>
-      </div>
-      <div class="s">
-        <b data-count="1">0</b>
-        <span>Comunidad</span>
-      </div>
+    <div class="stats">
+      <div class="s"><b>120+</b><span>Atletas</span></div>
+      <div class="s"><b>4</b><span>Categorías</span></div>
+      <div class="s"><b>30+</b><span>Partidos al año</span></div>
+      <div class="s"><b>1</b><span>Comunidad</span></div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true"><span class="line"><i></i></span> Desliza</div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span>Fútbol 11</span><span>Fútbol 7</span><span>Femenil</span><span>Formativo</span><span>Comunidad</span><span>San Pedro</span>
-    <span>Fútbol 11</span><span>Fútbol 7</span><span>Femenil</span><span>Formativo</span><span>Comunidad</span><span>San Pedro</span>
-  </div>
-</div>
-
-<!-- STATEMENT -->
-<section class="statement on-light">
-  <div class="wrap grid">
+<section aria-label="Sobre el equipo" style="padding:6rem 0">
+  <div class="wrap" style="display:grid;gap:3rem;align-items:center">
     <div>
-      <span class="kicker reveal">01 — El equipo</span>
-      <h2 class="disp reveal" style="--d:.08s">Un equipo. <span class="hl">Diferentes metas.</span></h2>
-      <p class="reveal" style="--d:.14s">No todos entrenamos para la misma competencia, al mismo ritmo ni por la misma razón. En TRI FORM cada atleta sigue un entrenamiento de acuerdo con su nivel y sus objetivos, pero hay algo que compartimos: el proceso.</p>
-      <p class="reveal" style="--d:.20s">Nos reunimos a entrenar, nos acompañamos en las sesiones y construimos una comunidad donde cada quien trabaja por su propia meta sin tener que hacerlo solo.</p>
-      <p class="big-line reveal" style="--d:.26s">Tu objetivo es personal. <span class="hl">El equipo es de todos.</span></p>
+      <span class="kicker">01 — El equipo</span>
+      <h2 style="font-size:clamp(2.4rem,6vw,4.5rem);line-height:.92;margin:1rem 0 1rem">Un equipo. <span class="hl">Diferentes metas.</span></h2>
+      <p class="lead">No todos entrenamos para la misma competencia, al mismo ritmo ni por la misma razón. En TRI FORM cada atleta sigue un entrenamiento de acuerdo con su nivel y sus objetivos, pero hay algo que compartimos: el proceso.</p>
+      <p style="color:var(--muted);max-width:52ch;margin-top:1rem">Nos reunimos a entrenar, nos acompañamos en las sesiones y construimos una comunidad donde cada quien trabaja por su propia meta sin tener que hacerlo solo.</p>
+      <p class="bigline" style="margin-top:1.5rem">Tu objetivo es personal. <span class="hl">El equipo es de todos.</span></p>
     </div>
-    <div class="shot reveal-r reveal" style="--d:.18s">
-      <span class="frame-deco" aria-hidden="true"></span>
-      <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1200&auto=format&fit=crop" alt="Grupo de jugadores entrenando juntos" loading="lazy"
-        onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>equipo.jpg</b></div>'">
+    <div class="frame">
+      <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1200&auto=format&fit=crop" alt="Equipo entrenando" style="width:100%;aspect-ratio:4/5;object-fit:cover">
     </div>
   </div>
 </section>
 
-<!-- DISCIPLINAS -->
-<section class="cats section" id="disciplinas">
+<section id="disciplinas" aria-label="Disciplinas" class="dark">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="kicker reveal">02 — Disciplinas</span>
-        <h2 class="disp reveal" style="--d:.08s">Cuatro categorías. <span class="hl">Un mismo equipo.</span></h2>
+        <span class="kicker">02 — Disciplinas</span>
+        <h2>Cuatro categorías. <span class="hl">Un mismo equipo.</span></h2>
       </div>
-      <p class="note reveal" style="--d:.16s">Puedes enfocarte en una categoría o formar parte de varias según tu nivel y disponibilidad.</p>
+      <p class="lead">Puedes enfocarte en una categoría o formar parte de varias según tu nivel y disponibilidad.</p>
     </div>
 
-    <div class="cat-index reveal">
-      <a href="#cat-11">Fútbol 11</a>
-      <a href="#cat-7">Fútbol 7</a>
-      <a href="#cat-fem">Femenil</a>
-      <a href="#cat-for">Formativo</a>
+    <div class="index">
+      <a href="#cat-11">Fútbol 11</a><a href="#cat-7">Fútbol 7</a><a href="#cat-fem">Femenil</a><a href="#cat-for">Formativo</a>
     </div>
 
     <article class="cat" id="cat-11">
-      <div class="media reveal-l reveal">
+      <div class="media">
         <span class="num">01</span>
-        <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=1200&auto=format&fit=crop" alt="Fútbol 11 a campo completo" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>fut-11.jpg</b></div>'">
+        <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=1200&auto=format&fit=crop" alt="Fútbol 11">
       </div>
       <div>
-        <span class="tag reveal">Full pitch · Full team</span>
-        <h3 class="disp reveal" style="--d:.06s">Fútbol 11</h3>
-        <p class="reveal" style="--d:.12s">El juego completo. Sesiones y partidos a campo completo para desarrollar técnica, táctica y resistencia dentro de una preparación estructurada.</p>
-        <ul class="fit reveal" style="--d:.18s">
+        <span class="tag">Full pitch · Full team</span>
+        <h3>Fútbol 11</h3>
+        <p>El juego completo. Sesiones y partidos a campo completo para desarrollar técnica, táctica y resistencia dentro de una preparación estructurada.</p>
+        <ul class="fit">
           <li>Quieres jugar a campo completo.</li>
           <li>Ya juegas y quieres subir de nivel.</li>
           <li>Te preparas para un torneo o liga.</li>
           <li>Quieres combinar con otras categorías.</li>
         </ul>
-        <a href="#unete" class="btn btn-volt reveal" style="--d:.24s">Quiero jugar Fútbol 11 <span class="arw">→</span></a>
+        <a href="#unete" class="btn btn-volt">Quiero jugar Fútbol 11 <span>→</span></a>
       </div>
     </article>
 
     <article class="cat flip" id="cat-7">
-      <div class="media reveal-r reveal">
+      <div class="media">
         <span class="num">02</span>
-        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop" alt="Fútbol 7 en cancha reducida" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>fut-7.jpg</b></div>'">
+        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop" alt="Fútbol 7">
       </div>
       <div>
-        <span class="tag reveal">Small sided · Big game</span>
-        <h3 class="disp reveal" style="--d:.06s">Fútbol 7</h3>
-        <p class="reveal" style="--d:.12s">Rápido, intenso y táctico. Más toques al balón, más decisiones por minuto y una forma de entrenar que se adapta a tu semana.</p>
-        <ul class="fit reveal" style="--d:.18s">
+        <span class="tag">Small sided · Big game</span>
+        <h3>Fútbol 7</h3>
+        <p>Rápido, intenso y táctico. Más toques al balón, más decisiones por minuto y una forma de entrenar que se adapta a tu semana.</p>
+        <ul class="fit">
           <li>Buscas un formato rápido e intenso.</li>
           <li>Quieres más toques al balón.</li>
           <li>Tienes menos tiempo pero quieres entrenar bien.</li>
           <li>Quieres competir en torneos 7.</li>
         </ul>
-        <a href="#unete" class="btn btn-volt reveal" style="--d:.24s">Quiero jugar Fútbol 7 <span class="arw">→</span></a>
+        <a href="#unete" class="btn btn-volt">Quiero jugar Fútbol 7 <span>→</span></a>
       </div>
     </article>
 
     <article class="cat" id="cat-fem">
-      <div class="media reveal-l reveal">
+      <div class="media">
         <span class="num">03</span>
-        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop" alt="Equipo femenil de fútbol" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>fem.jpg</b></div>'">
+        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop" alt="Femenil">
       </div>
       <div>
-        <span class="tag reveal">She plays</span>
-        <h3 class="disp reveal" style="--d:.06s">Femenil</h3>
-        <p class="reveal" style="--d:.12s">Un espacio para entrenar, crecer y competir. Técnica, resistencia y confianza en la cancha, con el respaldo de una comunidad que te acompaña.</p>
-        <ul class="fit reveal" style="--d:.18s">
+        <span class="tag">She plays</span>
+        <h3>Femenil</h3>
+        <p>Un espacio para entrenar, crecer y competir. Técnica, resistencia y confianza en la cancha, con el respaldo de una comunidad que te acompaña.</p>
+        <ul class="fit">
           <li>Quieres jugar en un equipo femenino.</li>
           <li>Buscas un espacio para entrenar y crecer.</li>
           <li>Ya juegas y quieres mayor estructura.</li>
-          <li>Quieres formar parte de una comunidad femenil.</li>
         </ul>
-        <a href="#unete" class="btn btn-volt reveal" style="--d:.24s">Quiero jugar Femenil <span class="arw">→</span></a>
+        <a href="#unete" class="btn btn-volt">Quiero jugar Femenil <span>→</span></a>
       </div>
     </article>
 
     <article class="cat flip" id="cat-for">
-      <div class="media reveal-r reveal">
+      <div class="media">
         <span class="num">04</span>
-        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" alt="Jugadores juveniles entrenando" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>formativo.jpg</b></div>'">
+        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" alt="Formativo">
       </div>
       <div>
-        <span class="tag reveal">Next generation</span>
-        <h3 class="disp reveal" style="--d:.06s">Formativo</h3>
-        <p class="reveal" style="--d:.12s">Donde empieza todo. Desarrollo técnico y táctico por edad y nivel, para construir bases sólidas jugando y compitiendo en equipo.</p>
-        <ul class="fit reveal" style="--d:.18s">
+        <span class="tag">Next generation</span>
+        <h3>Formativo</h3>
+        <p>Donde empieza todo. Desarrollo técnico y táctico por edad y nivel, para construir bases sólidas jugando y compitiendo en equipo.</p>
+        <ul class="fit">
           <li>Estás iniciando y quieres base técnica.</li>
           <li>Buscas desarrollo para tu edad o nivel.</li>
           <li>Quieres competir en categorías juveniles.</li>
-          <li>Quieres aprender jugando en equipo.</li>
         </ul>
-        <a href="#unete" class="btn btn-volt reveal" style="--d:.24s">Quiero jugar Formativo <span class="arw">→</span></a>
+        <a href="#unete" class="btn btn-volt">Quiero jugar Formativo <span>→</span></a>
       </div>
     </article>
   </div>
 </section>
 
-<!-- PILLARS -->
-<section class="pillars section">
+<section class="pillars" aria-label="Pilares">
   <div class="wrap">
-    <span class="kicker reveal">03 — Más que seguir un plan</span>
-    <p class="intro reveal" style="--d:.08s">Jugar solo puede llevarte lejos. <b>Tener un equipo hace diferente el camino.</b> En TRI FORM combinamos la estructura de un entrenamiento con la experiencia de pertenecer a una comunidad.</p>
+    <span class="kicker">03 — Más que seguir un plan</span>
+    <p class="intro">Jugar solo puede llevarte lejos. <b>Tener un equipo hace diferente el camino.</b> En TRI FORM combinamos la estructura de un entrenamiento con la experiencia de pertenecer a una comunidad.</p>
     <div class="pgrid">
-      <div class="p reveal"><div class="n">01</div><h4>Entrena</h4><p>Cada atleta tiene objetivos, nivel y necesidades diferentes.</p></div>
-      <div class="p reveal" style="--d:.06s"><div class="n">02</div><h4>Comparte</h4><p>Nos reunimos para entrenar y sumar kilómetros y toques juntos.</p></div>
-      <div class="p reveal" style="--d:.12s"><div class="n">03</div><h4>Avanza</h4><p>Seguimos nuestro progreso y trabajamos hacia la siguiente meta.</p></div>
-      <div class="p reveal" style="--d:.18s"><div class="n">04</div><h4>Compite</h4><p>Nos preparamos para torneos y nuevos retos durante el año.</p></div>
+      <div class="p">
+        <div class="n">01</div><h4>Entrena</h4><p>Cada atleta tiene objetivos, nivel y necesidades diferentes.</p>
+      </div>
+      <div class="p">
+        <div class="n">02</div><h4>Comparte</h4><p>Nos reunimos para entrenar y sumar kilómetros y toques juntos.</p>
+      </div>
+      <div class="p">
+        <div class="n">03</div><h4>Avanza</h4><p>Seguimos nuestro progreso y trabajamos hacia la siguiente meta.</p>
+      </div>
+      <div class="p">
+        <div class="n">04</div><h4>Compite</h4><p>Nos preparamos para torneos y nuevos retos durante el año.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BAND -->
-<section class="band">
-  <div class="bg">
-    <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=1600&auto=format&fit=crop" alt="Jugadores celebrando" loading="lazy"
-      onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>celebracion.jpg</b></div>'">
-  </div>
+<section class="band" aria-label="Llamado a la acción">
+  <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=1600&auto=format&fit=crop" alt="Celebración">
   <div class="wrap">
-    <span class="kicker reveal">¿Cuál es tu próxima meta?</span>
-    <h2 class="disp reveal" style="--d:.08s">Tu primer torneo. Un 10K. <span class="hl">Una nueva distancia.</span> Una mejor marca.</h2>
-    <p class="reveal" style="--d:.14s">No importa cuál sea, queremos conocerla.</p>
-    <a href="#unete" class="btn btn-volt reveal" style="--d:.20s">Quiero ser parte del equipo <span class="arw">→</span></a>
+    <span class="kicker">¿Cuál es tu próxima meta?</span>
+    <h2>Tu primer torneo. Un 10K. <span class="hl">Una nueva distancia.</span> Una mejor marca.</h2>
+    <p>No importa cuál sea, queremos conocerla.</p>
+    <a href="#unete" class="btn btn-volt">Quiero ser parte del equipo <span>→</span></a>
   </div>
 </section>
 
-<!-- EQUIPO -->
-<section class="equipo on-light section" id="equipo">
+<section class="equipo onlight" id="equipo" aria-label="El equipo">
   <div class="wrap">
-    <div class="grid">
+    <div style="display:grid;gap:3rem;align-items:center">
       <div>
-        <span class="kicker reveal">04 — El equipo</span>
-        <h2 class="disp reveal" style="--d:.08s">No solo entrenamos juntos. <span class="hl">Crecemos juntos.</span></h2>
-        <p class="reveal" style="--d:.14s">TRI FORM nace en San Pedro Garza García como una comunidad para personas que disfrutan entrenar, ponerse nuevas metas y compartir el proceso con otros atletas.</p>
-        <p class="reveal" style="--d:.20s">Somos un equipo de fútbol donde pueden coincidir personas con experiencias y objetivos completamente diferentes. Algunos están preparando su primera competencia; otros quieren superar una marca personal.</p>
-        <p class="reveal" style="--d:.26s"><b>Buscamos que cada atleta tenga un propósito detrás de lo que hace</b> y, al mismo tiempo, encuentre un equipo con quien compartirlo.</p>
+        <span class="kicker">04 — El equipo</span>
+        <h2>No solo entrenamos juntos. <span class="hl">Crecemos juntos.</span></h2>
+        <p>TRI FORM nace en San Pedro Garza García como una comunidad para personas que disfrutan entrenar, ponerse nuevas metas y compartir el proceso con otros atletas.</p>
+        <p>Somos un equipo de fútbol donde pueden coincidir personas con experiencias y objetivos completamente diferentes. Algunos están preparando su primera competencia; otros quieren superar una marca personal.</p>
+        <p><b>Buscamos que cada atleta tenga un propósito detrás de lo que hace</b> y, al mismo tiempo, encuentre un equipo con quien compartirlo.</p>
       </div>
-      <div class="shot reveal-r reveal" style="--d:.18s">
-        <span class="frame-deco" aria-hidden="true"></span>
-        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop" alt="Comunidad de jugadores reunidos" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>equipo.jpg</b></div>'">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop" alt="Comunidad" style="width:100%;aspect-ratio:4/5;object-fit:cover">
       </div>
     </div>
 
     <div class="philo">
-      <span class="kicker reveal">Nuestra filosofía</span>
-      <p class="k reveal" style="--d:.08s">Tu juego. Tu ritmo. <span class="hl">Tu equipo.</span></p>
-      <p class="reveal" style="--d:.14s">Creemos que ser parte de un equipo no significa que todos tengan que avanzar al mismo ritmo. Cada atleta tiene su propio proceso. Los entrenamientos pueden cambiar dependiendo del objetivo, nivel y competencia de cada persona. Durante la semana nos encontramos para compartir diferentes sesiones y acompañarnos mientras cada quien realiza el trabajo que le corresponde. Porque puedes tener una meta individual y aun así construirla acompañado.</p>
+      <span class="kicker">Nuestra filosofía</span>
+      <p class="k">Tu juego. Tu ritmo. <span class="hl">Tu equipo.</span></p>
+      <p>Creemos que ser parte de un equipo no significa que todos tengan que avanzar al mismo ritmo. Cada atleta tiene su propio proceso. Durante la semana nos encontramos para compartir diferentes sesiones y acompañarnos mientras cada quien realiza el trabajo que le corresponde.</p>
 
       <div class="values">
-        <div class="v reveal"><div class="n">01</div><h4>Constancia</h4><p>Los grandes objetivos se construyen en los entrenamientos de todos los días.</p></div>
-        <div class="v reveal" style="--d:.06s"><div class="n">02</div><h4>Comunidad</h4><p>Compartimos entrenamientos, competencias y todo lo que hay entre una meta y la siguiente.</p></div>
-        <div class="v reveal" style="--d:.12s"><div class="n">03</div><h4>Disciplina</h4><p>Hay días donde la motivación está y otros donde simplemente toca cumplir.</p></div>
-        <div class="v reveal" style="--d:.18s"><div class="n">04</div><h4>Progreso</h4><p>No nos comparamos entre nosotros. Buscamos ser mejores que cuando empezamos.</p></div>
-        <div class="v reveal" style="--d:.24s"><div class="n">05</div><h4>Equipo</h4><p>Celebramos las metas propias y también las de quienes juegan a nuestro lado.</p></div>
+        <div class="v"><div class="n">01</div><h4>Constancia</h4><p>Los grandes objetivos se construyen en los entrenamientos de todos los días.</p></div>
+        <div class="v"><div class="n">02</div><h4>Comunidad</h4><p>Compartimos entrenamientos, competencias y todo lo que hay entre una meta y la siguiente.</p></div>
+        <div class="v"><div class="n">03</div><h4>Disciplina</h4><p>Hay días donde la motivación está y otros donde simplemente toca cumplir.</p></div>
+        <div class="v"><div class="n">04</div><h4>Progreso</h4><p>No nos comparamos entre nosotros. Buscamos ser mejores que cuando empezamos.</p></div>
+        <div class="v"><div class="n">05</div><h4>Equipo</h4><p>Celebramos las metas propias y también las de quienes juegan a nuestro lado.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW -->
-<section class="how section">
+<section class="dark" aria-label="Cómo entrenamos">
   <div class="wrap">
-    <div class="grid">
+    <div style="display:grid;gap:3rem;align-items:center">
       <div>
-        <span class="kicker reveal">05 — Cómo entrenamos</span>
-        <h2 class="disp reveal" style="--d:.08s">Tu plan. <span class="hl">Nuestro equipo.</span></h2>
-        <p class="intro reveal" style="--d:.14s">Ser parte de TRI FORM no significa que todos hagamos exactamente el mismo entrenamiento. La preparación depende de tu experiencia, disponibilidad, categoría y objetivos.</p>
+        <span class="kicker">05 — Cómo entrenamos</span>
+        <h2>Tu plan. <span class="hl">Nuestro equipo.</span></h2>
+        <p class="intro">Ser parte de TRI FORM no significa que todos hagamos exactamente el mismo entrenamiento. La preparación depende de tu experiencia, disponibilidad, categoría y objetivos.</p>
       </div>
-      <div class="shot reveal-r reveal" style="--d:.18s">
-        <img src="https://images.unsplash.com/photo-1504450758481-7338ba14724d?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento de fútbol" loading="lazy"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>entrenar.jpg</b></div>'">
+      <div>
+        <img src="https://images.unsplash.com/photo-1504450758481-7338ba14724d?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento" style="width:100%;aspect-ratio:4/5;object-fit:cover">
       </div>
     </div>
+
     <div class="steps">
-      <div class="st reveal"><div class="n">01</div><div><h4>Conocemos tu meta</h4><p>Queremos saber qué estás buscando, qué experiencia tienes y hacia dónde quieres llegar.</p></div></div>
-      <div class="st reveal" style="--d:.06s"><div class="n">02</div><div><h4>Definimos tu entrenamiento</h4><p>Tu preparación se organiza de acuerdo con tu nivel, disponibilidad y objetivo.</p></div></div>
-      <div class="st reveal" style="--d:.12s"><div class="n">03</div><div><h4>Nos encontramos para entrenar</h4><p>Durante la semana tenemos puntos y sesiones de encuentro en San Pedro.</p></div></div>
-      <div class="st reveal" style="--d:.18s"><div class="n">04</div><div><h4>Seguimos avanzando</h4><p>El entrenamiento continúa conforme avanzas y aparecen nuevas metas.</p></div></div>
-      <div class="st reveal" style="--d:.24s"><div class="n">05</div><div><h4>Competimos juntos</h4><p>Cuando llegan los torneos, el equipo también forma parte de la experiencia.</p></div></div>
+      <div class="st"><div class="n">01</div><div><h4>Conocemos tu meta</h4><p>Queremos saber qué estás buscando, qué experiencia tienes y hacia dónde quieres llegar.</p></div></div>
+      <div class="st"><div class="n">02</div><div><h4>Definimos tu entrenamiento</h4><p>Tu preparación se organiza de acuerdo con tu nivel, disponibilidad y objetivo.</p></div></div>
+      <div class="st"><div class="n">03</div><div><h4>Nos encontramos para entrenar</h4><p>Durante la semana tenemos puntos y sesiones de encuentro en San Pedro.</p></div></div>
+      <div class="st"><div class="n">04</div><div><h4>Seguimos avanzando</h4><p>El entrenamiento continúa conforme avanzas y aparecen nuevas metas.</p></div></div>
+      <div class="st"><div class="n">05</div><div><h4>Competimos juntos</h4><p>Cuando llegan los torneos, el equipo también forma parte de la experiencia.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- PLANES -->
-<section class="planes on-light section" id="planes">
+<section class="onlight" id="planes" aria-label="Planes">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="kicker reveal">06 — Planes</span>
-        <h2 class="disp reveal" style="--d:.08s">Encuentra tu forma de ser parte.</h2>
+        <span class="kicker">06 — Planes</span>
+        <h2>Encuentra tu forma de ser parte.</h2>
       </div>
-      <p class="sub reveal" style="--d:.16s">Los planes dependen del nivel de seguimiento y preparación que busque cada atleta.</p>
+      <p class="sub">Los planes dependen del nivel de seguimiento y preparación que busque cada atleta.</p>
     </div>
+
     <div class="pcards">
-      <div class="plan reveal">
+      <div class="plan">
         <div class="name">Start</div>
         <div class="price">$699 <small>MXN / mes</small></div>
         <p class="desc">Para quienes quieren comenzar a entrenar con mayor estructura y formar parte de la comunidad.</p>
         <ul class="inc">
-          <li>Plan mensual de entrenamiento</li>
-          <li>Organización semanal de sesiones</li>
-          <li>Adaptación según nivel y objetivo</li>
-          <li>Acceso a entrenamientos grupales</li>
-          <li>Comunidad TRI FORM</li>
-          <li>Información sobre puntos de encuentro</li>
+          <li>Plan mensual de entrenamiento</li><li>Organización semanal</li><li>Adaptación según nivel</li><li>Acceso a entrenamientos</li><li>Comunidad TRI FORM</li>
         </ul>
         <a href="#unete" class="btn btn-line">Me interesa Start</a>
       </div>
-      <div class="plan featured reveal" style="--d:.08s">
+      <div class="plan featured" style="position:relative">
         <span class="pop">Más popular</span>
         <div class="name">Performance</div>
         <div class="price">$1,199 <small>MXN / mes</small></div>
-        <p class="desc">Para atletas con objetivos específicos que buscan mayor seguimiento durante su preparación.</p>
+        <p class="desc">Para atletas con objetivos específicos que buscan mayor seguimiento.</p>
         <ul class="inc">
-          <li>Plan de entrenamiento personalizado</li>
-          <li>Organización según disponibilidad</li>
-          <li>Ajustes durante el mes</li>
-          <li>Seguimiento del progreso</li>
-          <li>Acceso a entrenamientos grupales</li>
-          <li>Comunidad TRI FORM</li>
-          <li>Preparación enfocada en objetivos y competencias</li>
-          <li>Resolución de dudas sobre sesiones</li>
+          <li>Plan personalizado</li><li>Según disponibilidad</li><li>Ajustes durante el mes</li><li>Seguimiento del progreso</li><li>Comunidad TRI FORM</li><li>Preparación enfocada</li>
         </ul>
         <a href="#unete" class="btn btn-volt">Me interesa Performance</a>
       </div>
-      <div class="plan reveal" style="--d:.16s">
+      <div class="plan">
         <div class="name">Race</div>
         <div class="price">Desde $1,599 <small>MXN</small></div>
-        <p class="desc">Para atletas con una competencia en el calendario que quieren enfocar su preparación hacia ese objetivo.</p>
+        <p class="desc">Para atletas con una competencia en el calendario que quieren enfocarse.</p>
         <ul class="inc">
-          <li>Evaluación inicial</li>
-          <li>Plan enfocado en la competencia</li>
-          <li>Organización de semanas de preparación</li>
-          <li>Ajustes conforme avanza</li>
-          <li>Acceso a entrenamientos grupales</li>
-          <li>Comunidad TRI FORM</li>
-          <li>Seguimiento previo a la competencia</li>
-          <li>Estrategia para llegar preparado</li>
+          <li>Evaluación inicial</li><li>Plan enfocado</li><li>Organización de semanas</li><li>Ajustes conforme avanza</li><li>Seguimiento previo</li>
         </ul>
         <a href="#unete" class="btn btn-line">Tengo una competencia</a>
       </div>
     </div>
-    <div class="ask reveal">
-      <p><b>¿No sabes qué plan elegir?</b> Cuéntanos qué estás entrenando y cuál es tu siguiente objetivo. Te ayudamos a encontrar la opción que mejor se adapte a ti.</p>
-      <a href="#unete" class="btn btn-volt">Quiero más información <span class="arw">→</span></a>
+
+    <div class="ask">
+      <p><b>¿No sabes qué plan elegir?</b> Cuéntanos qué estás entrenando y cuál es tu siguiente objetivo.</p>
+      <a href="#unete" class="btn btn-volt">Quiero más información <span>→</span></a>
     </div>
-    <p class="note-pay reveal"><b>Importante:</b> los planes no se compran directamente desde el sitio web. Todos los botones llevan al formulario de contacto.</p>
+    <p class="note-pay"><b>Importante:</b> los planes no se compran aquí. Todos los botones llevan al formulario de contacto.</p>
   </div>
 </section>
 
-<!-- UNETE -->
-<section class="unete section" id="unete">
-  <div class="wrap grid">
-    <div class="left">
-      <span class="kicker reveal">07 — Únete</span>
-      <h2 class="disp reveal" style="--d:.08s">Tu próxima línea de salida <span class="hl">podría ser con nosotros.</span></h2>
-      <p class="reveal" style="--d:.14s">No importa si apenas estás entrando al mundo del fútbol o si ya tienes varios torneos detrás. Queremos conocer tu siguiente objetivo.</p>
-      <div class="shot reveal" style="--d:.20s">
-        <img src="https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop" alt="Jugador de fútbol listo" loading="lazy"
-          onerror="this.onerror=null;this.innerHTML='<div class=\'missing\'>Guarda esta foto como<br><b>jugador.jpg</b></div>'">
+<section class="dark" id="unete" aria-label="Únete">
+  <div class="wrap" style="display:grid;gap:3rem;align-items:start">
+    <div>
+      <span class="kicker">07 — Únete</span>
+      <h2>Tu próxima línea de salida <span class="hl">podría ser con nosotros.</span></h2>
+      <p class="lead">No importa si apenas estás entrando al mundo del fútbol o si ya tienes varios torneos detrás. Queremos conocer tu siguiente objetivo.</p>
+      <div class="frame" style="margin-top:2rem">
+        <img src="https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop" alt="Jugador" style="width:100%;aspect-ratio:4/3;object-fit:cover">
       </div>
     </div>
-    <form class="form reveal-r reveal" id="joinForm" style="--d:.16s" novalidate>
+    <form class="form" id="joinForm" onsubmit="event.preventDefault();this.classList.add('sent')">
       <div class="form-body">
         <h3>Formulario de inscripción</h3>
         <div class="fgrid">
-          <div class="field"><label for="f-nombre">Nombre completo <span class="req">*</span></label><input id="f-nombre" name="nombre" type="text" required></div>
-          <div class="field"><label for="f-correo">Correo electrónico <span class="req">*</span></label><input id="f-correo" name="correo" type="email" required></div>
-          <div class="field"><label for="f-edad">Edad</label><input id="f-edad" name="edad" type="number" min="5" max="99"></div>
-          <div class="field"><label for="f-disc">¿Qué categoría te interesa? <span class="req">*</span></label><select id="f-disc" name="disciplina" required><option value="">Selecciona…</option><option>Fútbol 11</option><option>Fútbol 7</option><option>Femenil</option><option>Formativo</option><option>Varias</option></select></div>
-          <div class="field"><label for="f-nivel">¿Cuál consideras que es tu nivel?</label><select id="f-nivel" name="nivel"><option value="">Selecciona…</option><option>Voy empezando</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select></div>
-          <div class="field"><label for="f-dias">¿Cuántos días a la semana entrenas?</label><select id="f-dias" name="dias"><option value="">Selecciona…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5 o más</option></select></div>
-          <div class="field full"><label for="f-objetivo">¿Cuál es tu próximo objetivo?</label><input id="f-objetivo" name="objetivo" type="text" placeholder="Ej. Mi primer torneo, mejorar mi marca…"></div>
-          <div class="field"><label for="f-comp">¿Tienes alguna competencia en mente?</label><select id="f-comp" name="competencia"><option value="">Selecciona…</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label for="f-comp-cuando">Si respondiste sí, ¿cuál y cuándo?</label><input id="f-comp-cuando" name="competencia_cuando" type="text"></div>
-          <div class="field full"><label for="f-plan">¿Qué plan te interesa?</label><select id="f-plan" name="plan"><option value="">Selecciona…</option><option>Start</option><option>Performance</option><option>Race</option></select></div>
-          <div class="field full"><label for="f-mensaje">Notas adicionales</label><textarea id="f-mensaje" name="mensaje" placeholder="¿Algo más que quieras compartir?"></textarea></div>
-          <button class="btn btn-volt" type="submit">Enviar inscripción <span class="arw">→</span></button>
+          <div class="field"><label for="n">Nombre completo *</label><input id="n" required></div>
+          <div class="field"><label for="e">Correo electrónico *</label><input id="e" type="email" required></div>
+          <div class="field"><label for="edad">Edad</label><input id="edad" type="number"></div>
+          <div class="field"><label for="disc">¿Qué categoría? *</label><select id="disc" required><option value="">Selecciona…</option><option>Fútbol 11</option><option>Fútbol 7</option><option>Femenil</option><option>Formativo</option><option>Varias</option></select></div>
+          <div class="field"><label for="niv">Nivel aproximado</label><select id="niv"><option>Voy empezando</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select></div>
+          <div class="field"><label for="dias">Días por semana</label><select id="dias"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 o más</option></select></div>
+          <div class="field full"><label for="obj">¿Cuál es tu próximo objetivo?</label><input id="obj" placeholder="Ej. Mi primer torneo, mejorar mi marca…"></div>
+          <div class="field"><label for="comp">¿Tienes competencia en mente?</label><select id="comp"><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label for="cuand">Detalles de la competencia</label><input id="cuand"></div>
+          <div class="field full"><label for="plan">¿Qué plan te interesa?</label><select id="plan"><option>Start</option><option>Performance</option><option>Race</option></select></div>
+          <div class="field full"><label for="msg">Notas adicionales</label><textarea id="msg" rows="3" placeholder="¿Algo más que quieras compartir?"></textarea></div>
+          <button class="btn btn-volt" type="submit" style="width:100%;justify-content:center;margin-top:.5rem">Enviar inscripción <span>→</span></button>
         </div>
       </div>
       <div class="form-ok">
         <div class="ic">✓</div>
         <h3>¡Solicitud enviada!</h3>
         <p>Te contactaremos pronto con los detalles de tu plan y próximos pasos.</p>
-        <a href="#inicio" class="btn btn-line">Volver al inicio</a>
+        <a href="#" class="btn btn-line">Volver al inicio</a>
       </div>
     </form>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section class="contacto section" id="contacto">
+<section class="onlight" id="contacto" aria-label="Contacto">
   <div class="wrap">
-    <div class="grid">
-      <div class="c">
-        <div class="k">Instagram</div>
-        <div class="v"><a href="https://instagram.com/triform" target="_blank" rel="noopener">@triform</a></div>
+    <div class="grid" style="display:grid;gap:1.5rem">
+      <div style="border:1px solid rgba(16,19,12,.12);padding:1.5rem">
+        <div class="kicker" style="margin-bottom:.5rem">Instagram</div>
+        <div style="font-family:var(--disp);font-size:clamp(1.2rem,2.5vw,1.6rem);text-transform:uppercase"><a href="#" style="color:var(--ink)">@triform</a></div>
       </div>
-      <div class="c">
-        <div class="k">Correo</div>
-        <div class="v"><a href="mailto:contacto@triform.mx">contacto@triform.mx</a></div>
+      <div style="border:1px solid rgba(16,19,12,.12);padding:1.5rem">
+        <div class="kicker" style="margin-bottom:.5rem">Correo</div>
+        <div style="font-family:var(--disp);font-size:clamp(1.2rem,2.5vw,1.6rem);text-transform:uppercase"><a href="mailto:contacto@triform.mx" style="color:var(--ink)">contacto@triform.mx</a></div>
       </div>
-      <div class="c">
-        <div class="k">Ubicación</div>
-        <div class="v">San Pedro Garza García, NL</div>
+      <div style="border:1px solid rgba(16,19,12,.12);padding:1.5rem">
+        <div class="kicker" style="margin-bottom:.5rem">Ubicación</div>
+        <div style="font-family:var(--disp);font-size:clamp(1.2rem,2.5vw,1.6rem);text-transform:uppercase">San Pedro Garza García, NL</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BLOG -->
-<section class="blog section" id="blog">
+<section class="onlight" id="blog" aria-label="Blog">
   <div class="wrap">
-    <span class="kicker reveal">Blog</span>
-    <h2 class="disp reveal" style="--d:.08s">Lo último <span class="hl">del equipo</span></h2>
+    <span class="kicker">Blog</span>
+    <h2>Lo último <span class="hl">del equipo</span></h2>
     <div class="bgrid">
-      <a href="#" class="post reveal"><span class="cat-tag">Entrenamiento</span><h4>Cómo preparar tu primer torneo</h4><p>Un plan sencillo para llegar preparado sin perder la cabeza.</p><span class="more">Leer <span class="arw">→</span></span></a>
-      <a href="#" class="post reveal" style="--d:.08s"><span class="cat-tag">Comunidad</span><h4>Por qué entrenar en equipo cambia todo</h4><p>La motivación, la constancia y la competencia sanas.</p><span class="more">Leer <span class="arw">→</span></span></a>
-      <a href="#" class="post reveal" style="--d:.16s"><span class="cat-tag">Físico</span><h4>El entrenamiento de Fútbol 11 vs Fútbol 7</h4><p>Dos formatos, diferentes demandas y cómo complementarlos.</p><span class="more">Leer <span class="arw">→</span></span></a>
+      <a href="#" style="background:var(--paper);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;transition:.3s" onmouseover="this.style.background='var(--paper2)'" onmouseout="this.style.background='var(--paper)'">
+        <span style="font-weight:800;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--voltink)">Entrenamiento</span>
+        <h4 style="font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.4rem);text-transform:uppercase;line-height:1.05">Cómo preparar tu primer torneo</h4>
+        <p style="font-size:.92rem;color:var(--muted2);flex:1;line-height:1.45">Un plan sencillo para llegar preparado sin perder la cabeza.</p>
+        <span style="font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase">Leer →</span>
+      </a>
+      <a href="#" style="background:var(--paper);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;transition:.3s" onmouseover="this.style.background='var(--paper2)'" onmouseout="this.style.background='var(--paper)'">
+        <span style="font-weight:800;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--voltink)">Comunidad</span>
+        <h4 style="font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.4rem);text-transform:uppercase;line-height:1.05">Por qué entrenar en equipo cambia todo</h4>
+        <p style="font-size:.92rem;color:var(--muted2);flex:1;line-height:1.45">La motivación, la constancia y la competencia sanas.</p>
+        <span style="font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase">Leer →</span>
+      </a>
+      <a href="#" style="background:var(--paper);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;transition:.3s" onmouseover="this.style.background='var(--paper2)'" onmouseout="this.style.background='var(--paper)'">
+        <span style="font-weight:800;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--voltink)">Físico</span>
+        <h4 style="font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.4rem);text-transform:uppercase;line-height:1.05">Fútbol 11 vs Fútbol 7</h4>
+        <p style="font-size:.92rem;color:var(--muted2);flex:1;line-height:1.45">Dos formatos, diferentes demandas y cómo complementarlos.</p>
+        <span style="font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase">Leer →</span>
+      </a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-<footer class="footer">
+<footer>
   <div class="wrap">
     <div class="f-top">
       <div class="f-brand">
@@ -840,54 +634,10 @@ body.no-scroll{overflow:hidden}
     </div>
     <div class="f-bottom">
       <span>© TRI FORM. Todos los derechos reservados.</span>
-      <button class="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver arriba ↑</button>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer">Volver arriba ↑</button>
     </div>
   </div>
 </footer>
 
-<!-- FLOAT JOIN BTN -->
-<a href="#unete" class="float-join" aria-label="Únete">Únete <span class="dot"></span></a>
-
-<script>
-  // Remove no-js
-  document.body.classList.remove('no-js');
-  document.body.classList.add('js');
-
-  // Progress + sticky header shadow
-  const progress = document.getElementById('progress');
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    const h = document.documentElement;
-    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
-    progress.style.width = (pct * 100) + '%';
-    header.style.boxShadow = h.scrollTop > 40 ? '0 1px 0 rgba(243,242,236,.1)' : 'none';
-  }, { passive: true });
-
-  // Burger
-  const burger = document.getElementById('burger');
-  const mmenu = document.getElementById('mmenu');
-  burger.addEventListener('click', () => {
-    const open = document.body.classList.toggle('menu-open');
-    burger.setAttribute('aria-expanded', open);
-    mmenu.setAttribute('aria-hidden', !open);
-    document.body.classList.toggle('no-scroll', open);
-  });
-  // Close on link click (mobile)
-  mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    document.body.classList.remove('menu-open');
-    burger.setAttribute('aria-expanded', 'false');
-    mmenu.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('no-scroll');
-  }));
-
-  // Form submit
-  document.getElementById('joinForm').addEventListener('submit', e => {
-    e.preventDefault();
-    document.getElementById('joinForm').classList.add('sent');
-  });
-
-  // Reveal animation on load
-  function revealAll() {
-    document.querySelectorAll('.reveal').forEach(el => {
-      // Small stagger based on index if needed
-      setTimeout(() => el.classList.add('in'), 
+</body>
+</html>
